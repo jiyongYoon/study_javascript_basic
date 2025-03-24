@@ -1,0 +1,75 @@
+<script>
+/**
+ * ES6에서 '클래스'라는 개념이 도입됨
+ * 그러나 실제로 Class라기 보다는
+ * 생성자 함수를 쉽게 사용하도록 해주는 코드 탬플릿이라고 생각하면 된다.
+ */
+
+// 기존 1
+function Person(name, email) {
+    this.name = name;
+    this.email = email;
+}
+
+Person.prototype.introduce = function () {
+    return `hello, my name is ${this.name}.`;
+}
+
+const john = new Person('john', 'john@example.com');
+console.log(john);
+console.log(john.introduce());
+console.log('---');
+/**
+ * Person { name: 'john', email: 'john@example.com' }
+ * hello, my name is john.
+ * { introduce: [Function (anonymous)] }
+ */
+
+// 기존 2
+const person2Prototype = {
+    introduce() {
+        return `hello, my name is ${this.name}.`;
+    }
+}
+function Person2(name, email) {
+    const person = Object.create(person2Prototype);
+    person.name = name;
+    person.email = email;
+    return person;
+}
+
+const jack = new Person2('jack', 'jack@example.com');
+console.log(jack);
+console.log(jack.introduce());
+console.log('---');
+
+/**
+ * { name: 'jack', email: 'jack@example.com' }
+ * hello, my name is jack.
+ * { introduce: [Function: introduce] }
+ */
+
+// class를 활용한 prototype 세팅
+class Person3 {
+    name;
+    email;
+
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    introduce() {
+        return `hello, my name is ${this.name}.`;
+    }
+}
+
+const alex = new Person3('alex', 'alex@example.com');
+console.log(alex);
+console.log(alex.introduce());
+/**
+ * Person3 { name: 'alex', email: 'alex@example.com' }
+ * hello, my name is alex.
+ * {}
+ */
+</script>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap 5 Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+<a>Hi</a>
+<p id="text">Hello</p>
+<button id="btn2" class="btn2 btn3 btn4">버튼</button>
+<button onclick="alert('버튼이 클릭됐습니다.')">버튼2</button>
+<button onclick="alert('버튼이 클릭됐습니다.')" class="btn">버튼</button>
+<h2>Title</h2>
+<form id="form-id" class="form-container">
+    <div id="form-first-div" class="mb-3 mt-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="mb-3">
+        <label for="pwd" class="form-label">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+    </div>
+    <div class="form-check mb-3">
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+        </label>
+    </div>
+    <button type="submit"  class="btn btn-primary submit-btn">Submit</button>
+</form>
+<script>
+    const buttonElement = document.querySelector('.btn2');
+
+    buttonElement.addEventListener('click', (event) => {
+        let val;
+        val = event.target;
+        val = event.target.id;
+        val = event.target.className;
+        val = event.target.classList;
+        val = event.type;
+        // 윈도우로부터의 거리 좌표
+        val = event.clientY;
+        // 요소로부터의 거리 좌표
+        val = event.offsetY;
+        console.log(val);
+    })
+
+    // const submitBtn = document.querySelector('.submit-btn');
+    // const form = document.querySelector('form');
+    // const title = document.querySelector('h2');
+
+    // //CLICK EVENT
+    // submitBtn.addEventListener('click', handleEvent);
+    // submitBtn.addEventListener('dblclick', handleEvent);
+    // submitBtn.addEventListener('mousedown', handleEvent);
+    // submitBtn.addEventListener('mouseup', handleEvent);
+    // submitBtn.addEventListener('mouseenter', handleEvent);
+    // submitBtn.addEventListener('mouseleave', handleEvent);
+    // submitBtn.addEventListener('mousemove', handleEvent);
+
+    const form = document.querySelector('form');
+    const emailInput = document.getElementById('email');
+    const title = document.querySelector('h2');
+    //FORM EVENT
+    // form.addEventListener('submit', handleEvent);
+    // emailInput.addEventListener('keydown', handleEvent);
+    // emailInput.addEventListener('keyup', handleEvent);
+    // emailInput.addEventListener('keypress', handleEvent);
+    // emailInput.addEventListener('focus', handleEvent);
+    // emailInput.addEventListener('blur', handleEvent);
+    // emailInput.addEventListener('cut', handleEvent);
+    // emailInput.addEventListener('paste', handleEvent);
+    emailInput.addEventListener('input', handleEvent);
+
+
+    function handleEvent(e) {
+        if (e.type === 'submit') {
+            e.preventDefault();
+        }
+
+        console.log(`Event Type: ${e.type}`);
+        // title.textContent = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+        title.textContent = e.target.value;
+    }
+
+</script>
+
+</body>
+
+</html>

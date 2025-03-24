@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Hello
+</body>
+</html>
+
+<!--
+window = 브라우저에서 만들어주는 global 객체
+-->
+
+<script>
+    // window.alert('안녕?');
+    console.log(window.innerWidth);
+    console.log(window.outerWidth);
+
+    let val;
+
+    val = window.location; // url에 대한 정보를 포함하는 변수
+    console.log(val);
+    console.log(val.href); // 현재 페이지
+    // window.location.href = 'https://google.com/'; // google로 이동시킴
+
+    console.log(window.history);
+
+    console.log(window.navigator);
+
+</script>

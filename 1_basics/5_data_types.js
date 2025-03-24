@@ -155,6 +155,7 @@ array[6] = '코드팩토리'
 console.log(array);
 console.log(array[6]);
 console.log(typeof array); // object
+console.log(Array.isArray(array)); // true
 
 /**
  * static typing : 변수 선언 시 타입 명시

@@ -119,6 +119,20 @@ console.log(newIveMembers.map((x) => {
 })); // [ '장원영', '이서', '최애: 안유진', '리즈', '레이', '가을' ]
 console.log(newIveMembers); // [ '장원영', '이서', '안유진', '리즈', '레이', '가을' ]
 
+// forEach
+newIveMembers.forEach(function (value, index, array) {
+    console.log(`${index}: ${value} in ${array}`);
+});
+/*
+index: value in array
+0: 장원영 in 장원영,이서,안유진,리즈,레이,가을
+1: 이서 in 장원영,이서,안유진,리즈,레이,가을
+2: 안유진 in 장원영,이서,안유진,리즈,레이,가을
+3: 리즈 in 장원영,이서,안유진,리즈,레이,가을
+4: 레이 in 장원영,이서,안유진,리즈,레이,가을
+5: 가을 in 장원영,이서,안유진,리즈,레이,가을
+ */
+
 // filter -> 모든 요소 순회
 numbers = [1, 9, 7, 4, 2];
 console.log(numbers.filter((x) => x > 5)); // [ 9, 7 ]
