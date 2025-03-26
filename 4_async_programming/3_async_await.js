@@ -72,4 +72,36 @@ async function runner4() {
     }
 }
 
-runner4();
+// runner4();
+
+// 그렇다면 global에서 await을 사용하면 어떻게 될까?
+console.log('-- 그렇다면 global에서 await을 사용하면 어떻게 될까? --');
+const one = () => Promise.resolve('One!');
+
+async function runner5() {
+    console.log('In runner5');
+    const res = await one();
+    console.log(res);
+}
+
+console.log('Before runner5');
+// await runner5(); --> SyntaxError: await is only valid in async functions and the top level bodies of modules
+console.log('After runner5');
+
+/**
+ * node.js 에서는 global에서 await을 사용할 수 없다. web에서 사용해보면 아래와 같은 순서로 출력된다.
+ * 
+ * Before runner5
+ * In runner5
+ * One!
+ * After runner5
+ * 
+ * 해당 코드는 사실 이렇게 바꿀 수 있다.
+ * ```
+ * console.log('Before runner5');
+ * runner5().then(() => {
+ *    console.log('After runner5');
+ * }
+ * 
+ * 때문에 console.log('After runner5');는 runner5의 콜백처럼 실행된다.
+ */
